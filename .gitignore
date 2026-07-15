@@ -17,9 +17,9 @@ __pycache__/
 .env.local
 
 # Model and Data Binaries (Local copies stay local)
-models/*.joblib
-models/*.pkl
-data/*.csv
+# models/*.joblib
+# models/*.pkl
+# data/*.csv
 
 # OS Generated Files
 .DS_Store
