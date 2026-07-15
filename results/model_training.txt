@@ -1,0 +1,48 @@
+(venv) C:\Coding\Project\unizik-ml-fraud-backend>python app/train_model.py
+============================================================
+INITIALIZING UNIZIK FRAUD DECISION TREE TRAINING PIPELINE
+============================================================
+[INFO] Successfully loaded 5,150 transaction records.
+[INFO] Train-Test Split Complete -> Training Set: 4,120 | Testing Set: 1,030
+[INFO] Training Decision Tree algorithm on behavioral feature matrix...
+[SUCCESS] Model convergence achieved.
+
+============================================================
+MODEL EVALUATION RESULTS (ON 1,030 UNSEEN TEST RECORDS)
+============================================================
+Overall Accuracy  : 99.71%
+Precision (Fraud) : 99.67%  (When flagged as fraud, how often is it correct?)
+Recall (Fraud)    : 99.33%  (Out of all real fraud, how much did we catch?)
+F1-Score          : 99.50%  (Harmonic mean of precision and recall)
+============================================================
+
+CONFUSION MATRIX:
+True Negatives (Legit Cleared)   : 729  |  False Positives (Innocent Blocked): 1
+False Negatives (Fraud Missed)   : 2    |  True Positives (Fraud Blocked)    : 298
+
+DETAILED CLASSIFICATION REPORT:
+                precision    recall  f1-score   support
+
+Legitimate (0)       1.00      1.00      1.00       730
+Fraudulent (1)       1.00      0.99      0.99       300
+
+      accuracy                           1.00      1030
+     macro avg       1.00      1.00      1.00      1030
+  weighted avg       1.00      1.00      1.00      1030
+
+============================================================
+
+FEATURE IMPORTANCE RANKINGS (GINI IMPURITY REDUCTION):
+#1 | device_student_count_24h   : 92.35%
+#2 | is_high_risk_asn           : 6.07%
+#3 | page_dwell_time_seconds    : 1.50%
+#4 | session_hardware_mismatch  : 0.07%
+#5 | failed_attempts_1h         : 0.00%
+#6 | is_off_peak_hour           : 0.00%
+============================================================
+
+[SUCCESS] Trained Decision Tree binary exported to: C:\Coding\Project\unizik-ml-fraud-backend\models\unizik_fraud_decision_tree.joblib
+The Flask API engine is now ready for live deployment.
+
+
+(venv) C:\Coding\Project\unizik-ml-fraud-backend>
