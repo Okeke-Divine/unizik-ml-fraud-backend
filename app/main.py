@@ -1,4 +1,10 @@
-# app\main.py
+# unizik-ml-fraud-backend/app/main.py
+
+import os
+import sys
+
+# Ensure the root project directory is in the Python path when executed directly
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -37,4 +43,7 @@ def predict_transaction():
 
 if __name__ == '__main__':
     # Run server locally on port 5000
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # app.run(host='0.0.0.0', port=5000, debug=True)
+
+    # Run server on localhost (127.0.0.1)
+    app.run(host='127.0.0.1', port=5000, debug=True)
