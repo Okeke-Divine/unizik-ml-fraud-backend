@@ -5,6 +5,7 @@ venv/
 env/
 ENV/
 *.venv/
+discard/
 
 # Python Cache and Bytecode
 __pycache__/
