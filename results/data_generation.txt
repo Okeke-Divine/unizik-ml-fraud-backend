@@ -1,10 +1,10 @@
+
 (venv) C:\Coding\Project\unizik-ml-fraud-backend>python app/data_generator.py
-Initializing synthetic data generation pipeline with realistic statistical noise...
+Initializing synthetic data generation with deep multi-variable overlap...
 
 ============================================================
-UNIZIK TRANSACTION MATRIX GENERATED WITH REALISTIC OVERLAP
+UNIZIK MATRIX GENERATED WITH DEEP MULTI-VARIABLE OVERLAP
 ============================================================
-File Exported To : C:\Coding\Project\unizik-ml-fraud-backend\data\unizik_transactions.csv
 Total Records    : 5,150
 Legitimate (0)   : 3,650 rows (70.9%)
 Fraudulent (1)   : 1,500 rows (29.1%)
@@ -13,11 +13,10 @@ Fraudulent (1)   : 1,500 rows (29.1%)
 Feature Class Averages (Validation Check):
               device_student_count_24h  page_dwell_time_seconds  ...  session_hardware_mismatch  is_off_peak_hour
 target_label                                                     ...
-0                                 1.44                    64.68  ...                       0.02              0.06
-1                                18.20                    11.89  ...                       0.75              0.60
+0                                12.60                    54.47  ...                       0.04              0.07
+1                                61.06                    19.09  ...                       0.71              0.63
 
 [2 rows x 6 columns]
 ============================================================
 
 
-(venv) C:\Coding\Project\unizik-ml-fraud-backend>

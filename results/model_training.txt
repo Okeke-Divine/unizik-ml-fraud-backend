@@ -10,35 +10,35 @@ INITIALIZING UNIZIK FRAUD DECISION TREE TRAINING PIPELINE
 ============================================================
 MODEL EVALUATION RESULTS (ON 1,030 UNSEEN TEST RECORDS)
 ============================================================
-Overall Accuracy  : 99.71%
-Precision (Fraud) : 99.67%  (When flagged as fraud, how often is it correct?)
-Recall (Fraud)    : 99.33%  (Out of all real fraud, how much did we catch?)
-F1-Score          : 99.50%  (Harmonic mean of precision and recall)
+Overall Accuracy  : 96.50%
+Precision (Fraud) : 93.71%  (When flagged as fraud, how often is it correct?)
+Recall (Fraud)    : 94.33%  (Out of all real fraud, how much did we catch?)
+F1-Score          : 94.02%  (Harmonic mean of precision and recall)
 ============================================================
 
 CONFUSION MATRIX:
-True Negatives (Legit Cleared)   : 729  |  False Positives (Innocent Blocked): 1
-False Negatives (Fraud Missed)   : 2    |  True Positives (Fraud Blocked)    : 298
+True Negatives (Legit Cleared)   : 711  |  False Positives (Innocent Blocked): 19
+False Negatives (Fraud Missed)   : 17    |  True Positives (Fraud Blocked)    : 283
 
 DETAILED CLASSIFICATION REPORT:
                 precision    recall  f1-score   support
 
-Legitimate (0)       1.00      1.00      1.00       730
-Fraudulent (1)       1.00      0.99      0.99       300
+Legitimate (0)       0.98      0.97      0.98       730
+Fraudulent (1)       0.94      0.94      0.94       300
 
-      accuracy                           1.00      1030
-     macro avg       1.00      1.00      1.00      1030
-  weighted avg       1.00      1.00      1.00      1030
+      accuracy                           0.97      1030
+     macro avg       0.96      0.96      0.96      1030
+  weighted avg       0.97      0.97      0.97      1030
 
 ============================================================
 
 FEATURE IMPORTANCE RANKINGS (GINI IMPURITY REDUCTION):
-#1 | device_student_count_24h   : 92.35%
-#2 | is_high_risk_asn           : 6.07%
-#3 | page_dwell_time_seconds    : 1.50%
-#4 | session_hardware_mismatch  : 0.07%
-#5 | failed_attempts_1h         : 0.00%
-#6 | is_off_peak_hour           : 0.00%
+#1 | device_student_count_24h   : 61.99%
+#2 | session_hardware_mismatch  : 17.60%
+#3 | is_high_risk_asn           : 9.66%
+#4 | page_dwell_time_seconds    : 4.14%
+#5 | is_off_peak_hour           : 3.75%
+#6 | failed_attempts_1h         : 2.87%
 ============================================================
 
 [SUCCESS] Trained Decision Tree binary exported to: C:\Coding\Project\unizik-ml-fraud-backend\models\unizik_fraud_decision_tree.joblib
