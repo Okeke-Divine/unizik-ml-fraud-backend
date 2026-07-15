@@ -1,0 +1,26 @@
+# unizik-ml-fraud-backend/.gitignore
+
+# Virtual Environment
+venv/
+env/
+ENV/
+*.venv/
+
+# Python Cache and Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environment Variables
+.env
+.env.local
+
+# Model and Data Binaries (Local copies stay local)
+models/*.joblib
+models/*.pkl
+data/*.csv
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
