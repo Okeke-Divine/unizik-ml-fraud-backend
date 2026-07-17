@@ -33,7 +33,7 @@ class FraudDetectionEngine:
 
     def _safe_float(self, value, default: float, min_val: float = None, max_val: float = None) -> float:
         """
-        Ruthlessly sanitizes and casts incoming JSON variables.
+        Sanitizes and casts incoming JSON variables.
         Prevents HTTP 500 crashes from nulls, strings, NaNs, and clamps Out-of-Distribution (OOD) exploits.
         """
         if value is None or value == "":
@@ -115,6 +115,7 @@ class FraudDetectionEngine:
 
         try:
             features = self.extract_features(payload)
+            print(f"[DEBUG] Python ML received features: {features}")
             
             # --- REPLACE np.array([features]) WITH THIS DATAFRAME WRAPPER ---
             feature_df = pd.DataFrame([features], columns=self.feature_columns)
