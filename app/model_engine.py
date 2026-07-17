@@ -4,6 +4,7 @@ import os
 import math
 import joblib
 import numpy as np
+import pandas as pd
 from app.config import Config
 
 class FraudDetectionEngine:
@@ -114,11 +115,13 @@ class FraudDetectionEngine:
 
         try:
             features = self.extract_features(payload)
-            feature_array = np.array([features])
+            
+            # --- REPLACE np.array([features]) WITH THIS DATAFRAME WRAPPER ---
+            feature_df = pd.DataFrame([features], columns=self.feature_columns)
 
-            # Execute inference
-            prediction = int(self.model.predict(feature_array)[0])
-            probabilities = self.model.predict_proba(feature_array)[0]
+            # Execute inference using feature_df
+            prediction = int(self.model.predict(feature_df)[0])
+            probabilities = self.model.predict_proba(feature_df)[0]
             confidence = float(probabilities[prediction])
 
             verdict = "FRAUDULENT" if prediction == 1 else "LEGITIMATE"
