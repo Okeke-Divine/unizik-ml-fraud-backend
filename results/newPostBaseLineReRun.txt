@@ -1,0 +1,66 @@
+
+(venv) C:\Coding\project\unizik-ml\unizik-ml-fraud-backend>python app/data_generator.py && python app/train_model.py && python app/main.py
+Initializing synthetic data generation with deep multi-variable overlap...
+Computing composite interaction features across all records...
+
+============================================================
+UNIZIK MATRIX GENERATED WITH DEEP MULTI-VARIABLE OVERLAP
+============================================================
+Total Records    : 5,150
+Legitimate (0)   : 3,650 rows (70.9%)
+Fraudulent (1)   : 1,500 rows (29.1%)
+============================================================
+
+Feature Class Averages (Validation Check):
+              device_student_count_24h  page_dwell_time_seconds  ...  night_failures  dwell_per_attempt
+target_label                                                     ...
+0                                12.60                    54.47  ...            0.04              44.49
+1                                61.06                    19.09  ...            1.93               6.34
+
+[2 rows x 9 columns]
+============================================================
+
+============================================================
+INITIALIZING UNIZIK FRAUD DECISION TREE TRAINING PIPELINE
+============================================================
+[INFO] Successfully loaded 5,150 transaction records.
+[INFO] Train-Test Split Complete -> Training Set: 4,120 | Testing Set: 1,030
+[INFO] Training Decision Tree algorithm on behavioral feature matrix...
+[SUCCESS] Model convergence achieved.
+
+============================================================
+MODEL EVALUATION RESULTS (ON 1,030 UNSEEN TEST RECORDS)
+============================================================
+Overall Accuracy  : 96.99%
+Precision (Fraud) : 92.43%  (When flagged as fraud, how often is it correct?)
+Recall (Fraud)    : 97.67%  (Out of all real fraud, how much did we catch?)
+F1-Score          : 94.98%  (Harmonic mean of precision and recall)
+============================================================
+
+CONFUSION MATRIX:
+True Negatives (Legit Cleared)   : 706  |  False Positives (Innocent Blocked): 24
+False Negatives (Fraud Missed)   : 7    |  True Positives (Fraud Blocked)    : 293
+
+DETAILED CLASSIFICATION REPORT:
+                precision    recall  f1-score   support
+
+Legitimate (0)       0.99      0.97      0.98       730
+Fraudulent (1)       0.92      0.98      0.95       300
+
+      accuracy                           0.97      1030
+     macro avg       0.96      0.97      0.96      1030
+  weighted avg       0.97      0.97      0.97      1030
+
+============================================================
+
+FEATURE IMPORTANCE RANKINGS (GINI IMPURITY REDUCTION):
+#1 | threat_score               : 85.07%
+#2 | dwell_per_attempt          : 8.27%
+#3 | page_dwell_time_seconds    : 3.98%
+#4 | device_student_count_24h   : 2.24%
+#5 | failed_attempts_1h         : 0.44%
+#6 | night_failures             : 0.01%
+#7 | is_high_risk_asn           : 0.00%
+#8 | session_hardware_mismatch  : 0.00%
+#9 | is_off_peak_hour           : 0.00%
+============================================================
